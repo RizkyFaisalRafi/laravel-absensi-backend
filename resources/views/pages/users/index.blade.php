@@ -81,6 +81,8 @@
                                                 </td>
                                                 <td>{{ $user->created_at }}</td>
                                                 <td>
+
+                                                    {{-- Update / Edit Data --}}
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('users.edit', $user->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
@@ -88,6 +90,7 @@
                                                             Edit
                                                         </a>
 
+                                                        {{-- Delete --}}
                                                         <form action="{{ route('users.destroy', $user->id) }}"
                                                             method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
