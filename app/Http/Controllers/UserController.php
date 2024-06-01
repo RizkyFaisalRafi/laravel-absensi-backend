@@ -49,4 +49,45 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
+
+    // Edit
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('pages.users.edit', compact('user'));
+    }
+
+    // Show
+    // public function show($id)
+    // {
+    //     $user = User::find($id);
+    //     return view('pages.users.show', compact('user'));
+    // }
+
+    // Update
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'role' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->role = $request->role;
+
+        // If password filled
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+    }
 }
