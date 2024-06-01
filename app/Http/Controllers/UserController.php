@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // index
-    public function index(Request $request) {
+    // Index
+    public function index(Request $request)
+    {
         // Search by name, pagination
         $users = DB::table('users')
             ->when($request->input('name'), function ($query, $name) {
@@ -18,5 +20,33 @@ class UserController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
         return view('pages.users.index', compact('users'));
+    }
+
+    // Create
+    public function create()
+    {
+        return view('pages.users.create');
+    }
+
+    // Store
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'role' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->role = $request->role;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 }
