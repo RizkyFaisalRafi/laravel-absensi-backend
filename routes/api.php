@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Daftarkan API untuk jadi Endpoint
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Login
+Route::post('/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+
+// LogOut
+Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
