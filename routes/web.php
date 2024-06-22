@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Company Controller
     Route::resource('companies', CompanyController::class);
+
+    // Attendance Controller
+    Route::resource('attendances', AttendanceController::class);
+
 });
 
 

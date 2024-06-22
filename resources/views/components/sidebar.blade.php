@@ -22,7 +22,15 @@
 
             {{-- Sidebar Company --}}
             <li class="nav-item">
-                <a href="{{ route('companies.show', 1) }}" class="nav-link"><i class="fas fa-fire"></i><span>Company</span>
+                <a href="{{ route('companies.show', 1) }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Company</span>
+                </a>
+            </li>
+
+            {{-- Sidebar Attendances --}}
+            <li class="nav-item">
+                <a href="{{ route('attendances.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Attendance</span>
                 </a>
             </li>
 

@@ -17,4 +17,9 @@ class Attendance extends Model
         'latlong_in',
         'latlong_out',
     ];
+
+    // Dapetin data user
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
