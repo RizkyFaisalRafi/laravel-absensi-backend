@@ -29,3 +29,9 @@ Route::post('/logout', [App\Http\Controllers\Api\AuthController::class, 'logout'
 
 // Company
 Route::get('/company', [App\Http\Controllers\Api\CompanyController::class, 'show'])->middleware('auth:sanctum');
+
+// CheckIn
+Route::post('/checkin', [App\Http\Controllers\Api\AttendanceController::class, 'checkin'])->middleware('auth:sanctum');
+
+// CheckOut
+Route::post('/checkout', [App\Http\Controllers\Api\AttendanceController::class, 'checkout'])->middleware('auth:sanctum');
