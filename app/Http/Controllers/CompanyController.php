@@ -14,13 +14,13 @@ class CompanyController extends Controller
         return view('pages.company.show', compact('company'));
     }
 
-    // Edit
+    // Edit page company
     public function edit(Company $company)
     {
         return view('pages.company.edit', compact('company'));
     }
 
-    // Update
+    // Update data company from edit page company
     public function update(Request $request, Company $company)
     {
         $request->validate([
@@ -45,8 +45,7 @@ class CompanyController extends Controller
             'time_out' => $request->time_out,
         ]);
 
-        return redirect()->route('company.show')->with('succeess', 'Company updated successfully');
+        return redirect()->route('companies.show', 1)->with('succeess', 'Company updated successfully');
     }
 
-    //
 }
