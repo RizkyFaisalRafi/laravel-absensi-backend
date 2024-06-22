@@ -99,7 +99,7 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
-    // Destroy / Delet Data
+    // Destroy / Delete Data
     public function destroy($id)
     {
         $user = User::find($id);

@@ -24,5 +24,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'faisal@gmail.com',
             'password' => Hash::make('12345678'),
         ]);
+
+        // Data dummy for company
+        \App\Models\Company::create([
+            'name' => 'PT. Faisal Indonesia',
+            'email' => 'faisalindo@gmail.com',
+            'address' => 'Jl. Faisal No. 1, Jakarta',
+            'latitude' => '-7.747033',
+            'longitude' => '110.364333',
+            'radius_km' => '0.5',
+            'time_in' => '08.00',
+            'time_out' => '17.00',
+        ]);
     }
 }

@@ -10,14 +10,19 @@
             <li class="menu-header">Menu</li>
 
             <li class="nav-item">
-                <a href="#"
-                    class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span>
+                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span>
                 </a>
             </li>
 
+            {{-- Sidebar Users --}}
             <li class="nav-item">
-                <a href="{{  route('users.index') }}"
-                    class="nav-link"><i class="fas fa-fire"></i><span>Users</span>
+                <a href="{{ route('users.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Users</span>
+                </a>
+            </li>
+
+            {{-- Sidebar Company --}}
+            <li class="nav-item">
+                <a href="{{ route('companies.show', 1) }}" class="nav-link"><i class="fas fa-fire"></i><span>Company</span>
                 </a>
             </li>
 
