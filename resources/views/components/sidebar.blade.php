@@ -34,6 +34,13 @@
                 </a>
             </li>
 
+            {{-- Sidebar Permissions --}}
+            <li class="nav-item">
+                <a href="{{ route('permissions.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Permissions</span>
+                </a>
+            </li>
+
 
         </ul>
     </aside>
