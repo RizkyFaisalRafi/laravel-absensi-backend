@@ -41,3 +41,6 @@ Route::get('/is-checkin', [App\Http\Controllers\Api\AttendanceController::class,
 
 // Update profile
 Route::post('/update-profile', [App\Http\Controllers\Api\AuthController::class, 'updateProfile'])->middleware('auth:sanctum');
+
+// Create Permission
+Route::apiResource('/api-permissions', App\Http\Controllers\Api\PermissionController::class)->middleware('auth:sanctum');
